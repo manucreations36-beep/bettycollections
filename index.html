@@ -128,6 +128,44 @@
  .pv-info h1{font-size:25px}.pv-related .products{grid-template-columns:repeat(2,minmax(0,1fr))}
  .g-thumb{width:60px;height:60px}
 }
+
+/* ===== Mobile navigation (drawer) ===== */
+.mobile-nav{display:flex;position:fixed;inset:0 auto 0 0;width:min(300px,85vw);background:#fff;z-index:55;padding:18px 22px 24px;flex-direction:column;gap:0;transform:translateX(-105%);visibility:hidden;transition:transform .3s,visibility .3s;box-shadow:10px 0 30px #0002;overflow-y:auto}
+.mobile-nav.open{transform:translateX(0);visibility:visible}
+.mobile-nav .mn-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.mobile-nav .close-cart{align-self:auto}.mobile-nav .mn-head .logo{border:0;padding:0;font-size:22px;text-transform:none}
+.mobile-nav>a{font-weight:800;font-size:13px;text-transform:uppercase;border-bottom:1px solid #eee;padding:15px 0}
+.mobile-nav>a:active{color:var(--red)}
+.mobile-nav .mn-wa{margin-top:20px;justify-content:center;padding:14px;font-size:11px}
+.menu-toggle{cursor:pointer;color:var(--ink);padding:4px 6px}
+@media(max-width:900px){
+ .navlinks{display:none}
+ .menu-toggle{display:block;border:0;background:transparent;font-size:24px;line-height:1}
+ .navbar{gap:12px}.navtools{margin-left:auto}
+}
+@media(min-width:901px){.mobile-nav{display:none}}
+
+/* ===== Phone hero: same layout as desktop, scaled down ===== */
+@media(max-width:600px){
+ .hero{min-height:230px}
+ .hero-slide{display:flex;align-items:center;padding:18px 4% 26px}
+ .hero-slide .hero-copy{max-width:56%;width:56%}
+ .eyebrow{font-size:7px;letter-spacing:.9px}
+ .hero h1{font-size:clamp(19px,6.4vw,26px);letter-spacing:-.8px;margin:5px 0 7px;line-height:1}
+ .hero p{font-size:8.5px;line-height:1.5;max-width:100%;margin:0 0 9px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .hero .actions{gap:6px}
+ .hero .btn{padding:7px 9px;font-size:7px;gap:6px;border-radius:3px}
+ .hero .btn.outline{display:none}
+ .hero-slide .hero-image{left:auto;right:0;top:0;bottom:auto;width:60%;height:100%;transform:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 42%);mask-image:linear-gradient(90deg,transparent 0,#000 42%)}
+ .hero-slide .hero-image.framed{left:auto;right:12%;top:14px;bottom:auto;width:auto;height:calc(100% - 28px);aspect-ratio:3/4;transform:none;border-radius:7px;-webkit-mask-image:none;mask-image:none;box-shadow:0 10px 28px #0008}
+ .hero-slide .discount{top:10%;bottom:auto;right:3%;width:50px;height:50px;font-size:5px;line-height:1.2}
+ .hero-slide .discount b{font-size:9px;line-height:1.1}
+ .hero-arrow{width:22px;height:22px;font-size:16px;top:50%}
+ .hero-arrow.prev{left:4px}.hero-arrow.next{right:4px}
+ .hero-dots{bottom:7px;gap:5px}.hero-dot{width:6px;height:6px}.hero-dot.active{width:15px}
+}
+@media(max-width:380px){.hero-slide .discount{display:none}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -139,7 +177,7 @@
 <nav class="navlinks"><a href="#home">Home</a><a href="#products">Women</a><a href="#categories">Men</a><a href="#categories">Kids</a><a href="#products">New Arrivals</a><a href="#brands">Brands</a><a href="#sale">Sale</a></nav>
 <div class="navtools"><label class="search"><span>⌕</span><input id="searchInput" placeholder="Search styles..." aria-label="Search products"></label><button class="iconbtn" aria-label="WhatsApp" onclick="openWhatsApp()">♧</button><button class="iconbtn" id="cartOpen" aria-label="Open cart">🛍<span class="cart-count" id="cartCount">0</span></button></div>
 </header>
-<nav class="mobile-nav" id="mobileNav"><button class="close-cart" id="menuClose" aria-label="Close menu">×</button><a href="#home">Home</a><a href="#categories">Shop by category</a><a href="#products">Featured products</a><a href="#sale">Offers</a><a href="#brands">Brands</a><a href="#contact">Contact Betty Collections</a></nav>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile menu"><div class="mn-head"><a class="logo" href="#home">BETTY<span>♥</span><small>COLLECTIONS</small></a><button class="close-cart" id="menuClose" aria-label="Close menu">×</button></div><a href="#home">Home</a><a href="#categories">Shop by category</a><a href="#products" data-cat="Casual">Casual shoes</a><a href="#products" data-cat="Training">Training shoes</a><a href="#products" data-cat="Official">Leather official</a><a href="#products" data-cat="">Featured products</a><a href="#sale">Offers</a><a href="#brands">Brands</a><a href="#contact">Contact Betty Collections</a><button class="btn wa mn-wa" onclick="openWhatsApp()">Order on WhatsApp →</button></nav>
 <main>
 <div id="homeView">
 <section class="hero" id="home" aria-label="Featured collections">
@@ -158,9 +196,19 @@
   <img class="hero-image framed" src="assets/brown-brogue.jpg" alt="Brown leather brogue-detail derby shoes">
   <div class="discount">NEW<br><b>DROPS</b><br>WEEKLY</div>
 </div>
+<div class="hero-slide" data-slide="3">
+  <div class="hero-copy"><div class="eyebrow">Relaxed everyday wear</div><h1>CASUAL<br>COMFORT</h1><p>Easy, versatile casual shoes that go with jeans, shorts and everything in between. Comfortable from morning to night.</p><div class="actions"><a class="btn" href="#products" onclick="filterCategory('Casual')">Shop casual <span>→</span></a><a class="btn outline" href="#categories">Explore styles</a></div></div>
+  <img class="hero-image framed" src="https://images.unsplash.com/photo-1520256862855-398228c41684?auto=format&fit=crop&w=900&q=80" alt="Casual sneakers" style="object-position:50% 55%">
+  <div class="discount">EASY<br><b>CASUAL</b><br>STYLES</div>
+</div>
+<div class="hero-slide" data-slide="4">
+  <div class="hero-copy"><div class="eyebrow">Built to move</div><h1>TRAIN<br>HARDER</h1><p>Lightweight, flexible training shoes for the gym, the track and long days on your feet. Order yours on WhatsApp.</p><div class="actions"><a class="btn" href="#products" onclick="filterCategory('Training')">Shop training <span>→</span></a><a class="btn outline" href="#categories">Explore styles</a></div></div>
+  <img class="hero-image framed" src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=900&q=80" alt="Training shoes" style="object-position:50% 55%">
+  <div class="discount">GYM<br><b>READY</b><br>PERFORMANCE</div>
+</div>
 <button class="hero-arrow prev" id="heroPrev" aria-label="Previous slide">‹</button>
 <button class="hero-arrow next" id="heroNext" aria-label="Next slide">›</button>
-<div class="hero-dots" aria-label="Choose featured slide"><button class="hero-dot active" data-go="0" aria-label="Slide 1"></button><button class="hero-dot" data-go="1" aria-label="Slide 2"></button><button class="hero-dot" data-go="2" aria-label="Slide 3"></button></div>
+<div class="hero-dots" aria-label="Choose featured slide"><button class="hero-dot active" data-go="0" aria-label="Slide 1"></button><button class="hero-dot" data-go="1" aria-label="Slide 2"></button><button class="hero-dot" data-go="2" aria-label="Slide 3"></button><button class="hero-dot" data-go="3" aria-label="Slide 4"></button><button class="hero-dot" data-go="4" aria-label="Slide 5"></button></div>
 </section>
 <section class="benefits">
 <div class="benefit"><span class="symbol">♧</span><div><strong>Local service</strong><small>Based in Mtwapa</small></div></div>
@@ -238,6 +286,7 @@ function closeCart(){document.getElementById("cartPanel").classList.remove("open
 function openWhatsApp(message="Hi Betty Collections! I'd like to enquire about your collection."){window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank","noopener")}
 function checkoutWhatsApp(){if(!cart.length){showToast("Your collection is empty");return}const lines=cart.map(p=>`• ${p.name}${p.size?" (EU "+p.size+")":""} x ${p.qty} — ${kes(p.price*p.qty)}`);const total=cart.reduce((s,p)=>s+p.price*p.qty,0);const message=`Hello Betty Collections! I'd like to place an order:\n\n${lines.join("\n")}\n\nEstimated total: ${kes(total)}\n\nPlease confirm availability, sizes, delivery/pickup options in Mtwapa, and final total.`;openWhatsApp(message)}
 function showSale(){activeCategory="";renderProducts();document.getElementById("searchInput").value="";showToast("Ask us on WhatsApp for current sale items.");openWhatsApp("Hi Betty Collections! Please share the current sale items and available offers.")}
+function filterCategory(c){activeCategory=c;document.getElementById("searchInput").value="";renderProducts()}
 function filterOfficial(){activeCategory="Official";document.getElementById("searchInput").value="";renderProducts()}
 let heroIndex=0, heroTimer;
 function showHeroSlide(index){
@@ -259,7 +308,7 @@ document.getElementById("clearFilter").addEventListener("click",()=>{activeCateg
 document.getElementById("cartOpen").addEventListener("click",openCart);document.getElementById("cartClose").addEventListener("click",closeCart);document.getElementById("overlay").addEventListener("click",closeCart);
 document.getElementById("menuToggle").addEventListener("click",()=>{document.getElementById("mobileNav").classList.add("open");document.getElementById("overlay").classList.add("show")});
 document.getElementById("menuClose").addEventListener("click",()=>{document.getElementById("mobileNav").classList.remove("open");document.getElementById("overlay").classList.remove("show")});
-document.querySelectorAll(".mobile-nav a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("mobileNav").classList.remove("open");document.getElementById("overlay").classList.remove("show")}));
+document.querySelectorAll(".mobile-nav a").forEach(a=>a.addEventListener("click",()=>{if(a.dataset.cat!==undefined)filterCategory(a.dataset.cat);document.getElementById("mobileNav").classList.remove("open");document.getElementById("overlay").classList.remove("show")}));
 document.getElementById("newsletterForm").addEventListener("submit",e=>{e.preventDefault();openWhatsApp("Hi Betty Collections! Please add me to updates. My email is "+document.getElementById("emailInput").value);showToast("Opening WhatsApp to request updates")});
 document.getElementById("year").textContent=new Date().getFullYear();
 renderProducts();renderCart();
