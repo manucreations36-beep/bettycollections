@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<title>Betty Collections | Step Into Your Style</title>
+<meta name="description" content="Shop fresh sneakers and everyday styles at Betty Collections, Mtwapa. Order easily on WhatsApp.">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--muted:#6b6b6b;--line:#e8e8e8;--red:#e52d35;--paper:#fff;--soft:#f5f5f5;--gold:#efbd3b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"DM Sans",Arial,sans-serif;color:var(--ink);background:#fff}button,input{font:inherit}button,a{-webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}.topbar{height:29px;background:#090909;color:#eee;display:flex;justify-content:space-between;align-items:center;padding:0 4%;font-size:10px}.topbar span{display:flex;align-items:center;gap:7px}.navbar{height:66px;padding:0 4%;display:flex;align-items:center;gap:28px;border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:20}.logo{font-weight:900;font-size:22px;letter-spacing:-1px;line-height:1}.logo span{color:var(--red)}.logo small{display:block;font-size:7px;letter-spacing:1.2px;font-weight:700;margin-top:3px;color:#555}.navlinks{display:flex;gap:25px;align-items:center;margin:auto;font-size:11px;font-weight:800;text-transform:uppercase}.navlinks a:first-child{color:var(--red)}.navtools{display:flex;align-items:center;gap:14px}.search{display:flex;align-items:center;background:#f7f7f7;border:1px solid #eee;border-radius:20px;padding:8px 12px;width:180px}.search input{background:transparent;border:0;outline:0;width:100%;font-size:11px}.iconbtn{border:0;background:transparent;font-size:20px;cursor:pointer;position:relative}.cart-count{position:absolute;top:-5px;right:-8px;background:var(--red);color:#fff;border-radius:50%;font-size:9px;width:16px;height:16px;display:grid;place-items:center}.menu-toggle{display:none}.hero{min-height:315px;background:#101012;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;overflow:hidden;color:#fff;padding:30px 6.2%;position:relative}
+.hero-slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;padding:30px 6.2%;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility .55s;overflow:hidden}
+.hero-slide.active{opacity:1;visibility:visible;z-index:1}
+.hero-slide .hero-copy{grid-column:1;grid-row:1}
+.hero-slide .hero-image{z-index:0}
+.hero-slide .discount{z-index:2}
+.hero-arrow{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:36px;height:36px;border:1px solid #ffffff70;border-radius:50%;background:#1119;color:#fff;font-size:27px;line-height:1;cursor:pointer}
+.hero-arrow:hover{background:var(--red);border-color:var(--red)}
+.hero-arrow.prev{left:14px}.hero-arrow.next{right:14px}
+.hero-dots{position:absolute;z-index:5;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px}
+.hero-dot{width:8px;height:8px;border:0;border-radius:50%;background:#ffffff70;padding:0;cursor:pointer}
+.hero-dot.active{background:var(--red);width:22px;border-radius:8px}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0c0c0e 0%,#0c0c0e 36%,rgba(12,12,14,.25) 75%,rgba(12,12,14,.3));pointer-events:none;z-index:1}.hero-copy{z-index:1;max-width:440px}.eyebrow{color:#ff4a52;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.3px}.hero h1{font-size:clamp(36px,5vw,56px);line-height:.98;letter-spacing:-2px;margin:10px 0 14px;font-weight:900}.hero p{font-size:12px;line-height:1.7;color:#e2e2e2;max-width:340px;margin:0 0 18px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{border:0;border-radius:4px;padding:12px 18px;background:var(--red);color:#fff;font-size:10px;font-weight:800;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:12px;transition:.2s}.btn:hover{background:#c91d26;transform:translateY(-1px)}.btn.outline{background:transparent;border:1px solid #aaa}.btn.outline:hover{background:#fff;color:#111}.hero-image{position:absolute;right:2%;top:0;width:61%;height:100%;object-fit:contain;object-position:center;mix-blend-mode:normal}.discount{position:absolute;right:7%;top:22%;z-index:2;border:1px dashed #aaa;border-radius:50%;width:90px;height:90px;display:grid;place-content:center;text-align:center;background:#101012b8;font-size:10px}.discount b{font-size:26px;color:#ff4149}.benefits{display:grid;grid-template-columns:repeat(4,1fr);padding:19px 5%;border-bottom:1px solid var(--line);gap:10px}.benefit{display:flex;align-items:center;justify-content:center;gap:12px;border-right:1px solid #ddd}.benefit:last-child{border:0}.benefit .symbol{font-size:24px}.benefit strong{font-size:10px;display:block;text-transform:uppercase}.benefit small{font-size:9px;color:#777;display:block;margin-top:3px}.section{padding:24px 4% 4px}.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.section h2{font-size:16px;text-transform:uppercase;letter-spacing:-.4px;margin:0;font-weight:900}.text-link{font-size:10px;text-transform:uppercase;font-weight:800;display:flex;gap:8px;align-items:center}.categories{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.category{height:130px;background:#f3f3f3;border-radius:6px;position:relative;overflow:hidden;padding:12px;cursor:pointer;border:1px solid transparent;transition:.2s}.category:hover{border-color:#ccc;transform:translateY(-2px)}.category strong{font-size:10px;display:block;position:relative;z-index:1}.category small{font-size:8px;display:block;margin-top:4px;position:relative;z-index:1}.category img{position:absolute;width:100%;height:73px;bottom:0;left:0;object-fit:contain;mix-blend-mode:multiply;transition:.25s}.category:hover img{transform:scale(1.06)}.products{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.product{border:1px solid #eee;border-radius:6px;overflow:hidden;min-width:0;transition:.2s;background:#fff}.product:hover{box-shadow:0 7px 20px #0000000c;transform:translateY(-2px)}.product-image{height:135px;background:#f5f5f5;position:relative;display:grid;place-items:center;overflow:hidden;cursor:pointer}.product-image img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .3s}.product:hover .product-image img{transform:scale(1.05)}.tag{position:absolute;top:8px;left:8px;padding:4px 7px;background:var(--red);color:#fff;border-radius:3px;font-size:8px;font-weight:800;text-transform:uppercase}.tag.dark{background:#111}.product-info{padding:10px}.product-name{font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:7px}.price{font-size:11px;font-weight:900}.old-price{font-size:9px;color:#888;text-decoration:line-through;margin-left:4px;font-weight:500}.rating{font-size:9px;color:#e5b32d;margin-top:8px;display:flex;align-items:center;justify-content:space-between}.rating small{color:#777}.add{background:#fff;border:1px solid #ddd;border-radius:3px;width:27px;height:27px;cursor:pointer;color:#111;font-size:17px}.add:hover{background:var(--red);color:#fff;border-color:var(--red)}.promos{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:22px 4% 5px}.promo{height:142px;border-radius:7px;overflow:hidden;position:relative;background:#111;color:#fff;padding:22px;display:flex;align-items:center}.promo.light{background:#e8e8e8;color:#111}.promo .promo-copy{position:relative;z-index:2;max-width:55%}.promo small{font-size:8px;text-transform:uppercase;font-weight:800;color:#ff6268}.promo h3{font-size:19px;line-height:1.1;margin:6px 0}.promo p{font-size:9px;margin:0 0 10px}.promo .btn{padding:9px 12px;font-size:8px;background:#fff;color:#111}.promo.light .btn{background:#111;color:#fff}.promo img{position:absolute;right:0;top:0;height:100%;width:56%;object-fit:contain;mix-blend-mode:normal}.brands{display:grid;grid-template-columns:repeat(8,1fr);align-items:center;gap:15px;padding:10px 4% 25px}.brand{height:48px;display:grid;place-items:center;font-weight:900;font-size:clamp(12px,1.7vw,21px);letter-spacing:-1px;border-right:1px solid #eee;filter:grayscale(1)}.brand:last-child{border:0}.newsletter{margin:0 4% 0;background:#101012;color:#fff;border-radius:8px 8px 0 0;padding:23px;display:grid;grid-template-columns:1fr 1.3fr .8fr;align-items:center;gap:20px}.newsletter h3{font-size:15px;margin:0 0 5px;text-transform:uppercase}.newsletter p{font-size:9px;color:#ccc;margin:0;line-height:1.5}.email-form{display:flex;background:#242426;padding:4px;border-radius:4px}.email-form input{min-width:0;flex:1;background:transparent;border:0;outline:0;color:#fff;padding:8px;font-size:10px}.email-form button{border:0;border-radius:3px;background:var(--red);color:#fff;padding:0 15px;font-size:9px;font-weight:800;cursor:pointer}.socials{display:flex;justify-content:flex-end;gap:15px;font-size:17px}.footer{background:#090909;color:#fff;padding:22px 4% 12px;display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:25px}.footer h4{font-size:9px;text-transform:uppercase;margin:0 0 12px}.footer p,.footer a{display:block;color:#bbb;font-size:9px;line-height:1.9;margin:0}.footer a:hover{color:#fff}.footer-logo{font-size:23px;font-weight:900}.footer-logo span{color:var(--red)}.copyright{text-align:center;background:#050505;color:#aaa;font-size:9px;padding:10px}.whatsapp-float{position:fixed;bottom:20px;right:20px;z-index:30;background:#20bd5a;color:#fff;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:27px;box-shadow:0 5px 18px #0003;cursor:pointer;border:0}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:#111;color:#fff;padding:12px 18px;border-radius:5px;font-size:12px;z-index:60;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}.cart-panel{position:fixed;right:0;top:0;height:100dvh;width:min(420px,100%);background:#fff;z-index:50;box-shadow:-10px 0 40px #0002;transform:translateX(105%);transition:.3s;display:flex;flex-direction:column}.cart-panel.open{transform:translateX(0)}.cart-head{padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}.cart-head h3{margin:0;font-size:18px}.close-cart{border:0;background:none;font-size:26px;cursor:pointer}.cart-items{padding:15px 20px;overflow:auto;flex:1}.empty-cart{text-align:center;color:#777;padding:45px 0;font-size:13px}.cart-row{display:grid;grid-template-columns:58px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid #eee;align-items:center}.cart-row img{width:58px;height:58px;object-fit:contain;background:#f5f5f5}.cart-row strong{font-size:12px}.cart-row small{display:block;color:#777;margin-top:4px}.qty{display:flex;gap:8px;align-items:center;margin-top:7px}.qty button{width:23px;height:23px;background:#f4f4f4;border:0;cursor:pointer}.cart-bottom{border-top:1px solid #eee;padding:20px}.total{display:flex;justify-content:space-between;font-weight:900;margin-bottom:15px}.cart-bottom .btn{width:100%;justify-content:center;padding:14px}.overlay{position:fixed;inset:0;background:#0006;z-index:40;opacity:0;pointer-events:none;transition:.3s}.overlay.show{opacity:1;pointer-events:auto}.mobile-nav{display:none}
+@media(max-width:900px){.navbar{gap:15px}.navlinks{gap:13px}.search{width:140px}.categories,.products{grid-template-columns:repeat(3,minmax(0,1fr))}.category{height:145px}.product-image{height:170px}.hero{min-height:300px}.discount{right:4%}.footer{grid-template-columns:1.3fr 1fr 1fr}.newsletter{grid-template-columns:1fr 1.2fr}.socials{display:none}}
+@media(max-width:600px){
+.hero-slide{display:block;padding:32px 22px}
+.hero-slide .hero-copy{position:relative;z-index:2}
+.hero-slide .hero-image{width:100%;height:58%;top:auto;bottom:0;right:0;object-position:center}
+.hero-slide .discount{bottom:28%;top:auto;right:18px}
+.hero-arrow{width:30px;height:30px;font-size:22px;top:53%}
+.hero-arrow.prev{left:8px}.hero-arrow.next{right:8px}
+.topbar{padding:0 12px;font-size:8px}.topbar span:last-child{display:none}.navbar{height:60px;padding:0 15px;gap:12px}.logo{font-size:20px}.navlinks{display:none}.menu-toggle{display:block;border:0;background:transparent;font-size:22px}.navtools{margin-left:auto;gap:8px}.search{width:min(37vw,150px);padding:7px 9px}.search input{font-size:10px}.hero{min-height:450px;display:block;padding:32px 22px;align-content:start}.hero:after{background:linear-gradient(180deg,#0b0b0d 0%,rgba(11,11,13,.95) 35%,rgba(11,11,13,.2) 100%)}.hero-copy{position:relative;z-index:2}.hero h1{font-size:42px}.hero p{font-size:11px}.hero-image{width:100%;height:58%;top:auto;bottom:0;right:0;object-position:center}.discount{width:70px;height:70px;right:18px;top:auto;bottom:30%;font-size:8px}.discount b{font-size:20px}.benefits{grid-template-columns:repeat(2,1fr);padding:14px 10px;gap:14px}.benefit{justify-content:flex-start;padding-left:10px;border:0}.benefit .symbol{font-size:21px}.section{padding:22px 14px 0}.section h2{font-size:14px}.categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.category{height:130px}.category img{height:78px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image{height:160px}.product-info{padding:9px}.product-name{font-size:11px}.promos{grid-template-columns:1fr;padding:20px 14px 0;gap:10px}.promo{height:140px;padding:17px}.promo h3{font-size:18px}.brands{grid-template-columns:repeat(4,1fr);padding:12px 14px 22px;gap:8px}.brand{height:42px}.newsletter{margin:0 14px;padding:18px;grid-template-columns:1fr;gap:13px}.email-form{min-height:42px}.socials{display:flex;justify-content:flex-start}.footer{padding:22px 16px;grid-template-columns:repeat(2,1fr);gap:22px 15px}.footer>div:first-child{grid-column:1/-1}.copyright{font-size:8px}.whatsapp-float{width:50px;height:50px;right:14px;bottom:14px}.mobile-nav{position:fixed;inset:0 auto 0 0;width:min(300px,85vw);background:#fff;z-index:55;padding:25px;display:flex;flex-direction:column;gap:22px;transform:translateX(-105%);transition:.3s;box-shadow:10px 0 30px #0002}.mobile-nav.open{transform:translateX(0)}.mobile-nav a{font-weight:800;font-size:13px;text-transform:uppercase;border-bottom:1px solid #eee;padding-bottom:13px}.mobile-nav .close-cart{align-self:flex-end}.discount{bottom:28%}}
+
+/* ===== Hero (complete rework: overlay sits under copy, images fit frame) ===== */
+[hidden]{display:none!important}
+.hero:after{display:none}
+.hero{display:block;min-height:400px;padding:0;background:#101012}
+.hero-slide{display:flex;align-items:center;padding:34px 6.2% 52px}
+.hero-slide .hero-copy{position:relative;z-index:2;max-width:440px;width:100%}
+.hero-slide .hero-image{position:absolute;right:0;top:0;width:60%;height:100%;object-fit:cover;z-index:0;
+ -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 42%);mask-image:linear-gradient(90deg,transparent 0,#000 42%)}
+.hero-slide .discount{right:5%;top:14%;z-index:2;background:#101012d9;border-color:#ffffff90}
+.hero h1{font-size:clamp(34px,4.6vw,56px)}
+.hero p{font-size:13px}
+.hero-arrow{background:#111c}
+@media(max-width:900px){.hero{min-height:380px}.hero-slide .hero-image{width:66%}.hero-slide .hero-copy{max-width:360px}}
+@media(max-width:600px){
+ .hero{min-height:560px}
+ .hero-slide{display:block;padding:30px 22px}
+ .hero-slide .hero-image{left:0;right:0;top:auto;bottom:0;width:100%;height:50%;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 38%);mask-image:linear-gradient(180deg,transparent 0,#000 38%)}
+ .hero-slide .discount{top:auto;bottom:40%;right:16px;width:72px;height:72px;font-size:8px}
+ .hero-slide .discount b{font-size:19px}
+ .hero h1{font-size:38px;letter-spacing:-1.5px}
+ .hero p{font-size:12px}
+ .hero-arrow{top:62%}
+ .hero-dots{bottom:12px}
+}
+
+.hero{min-height:460px}
+.hero-slide .discount{width:104px;height:104px;font-size:10px}
+.hero-slide .discount b{font-size:21px;line-height:1.15}
+.hero-slide .hero-image.framed{right:14%;top:28px;width:auto;aspect-ratio:3/4;height:calc(100% - 56px);object-fit:cover;border-radius:12px;-webkit-mask-image:none;mask-image:none;box-shadow:0 18px 50px #0008}
+@media(max-width:900px){.hero{min-height:420px}.hero-slide .hero-image.framed{right:6%}}
+@media(max-width:600px){
+ .hero{min-height:560px}
+ .hero-slide .hero-image.framed{left:50%;right:auto;transform:translateX(-50%);top:auto;bottom:22px;width:auto;height:calc(50% - 22px)}
+ .hero-slide .discount{width:80px;height:80px;font-size:7.5px}.hero-slide .discount b{font-size:15px}
+}
+/* ===== Images fit their frames ===== */
+.categories{grid-template-columns:repeat(7,minmax(0,1fr))}
+@media(max-width:900px){.categories{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.categories{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.product-image{height:auto;aspect-ratio:1/1;background:#f3f3f3}
+.product-image img{width:100%;height:100%;object-fit:cover;mix-blend-mode:normal}
+.product-name{cursor:pointer}.product-name:hover{color:var(--red)}
+.cart-row img{object-fit:cover;border-radius:4px}
+@media(max-width:900px){.product-image{height:auto}}
+@media(max-width:600px){.product-image{height:auto}}
+/* ===== Product page ===== */
+.pv{padding:18px 4% 40px;max-width:1200px;margin:0 auto}
+.crumbs{font-size:12px;color:var(--muted);margin-bottom:18px;display:flex;flex-wrap:wrap;gap:6px}
+.crumbs a:hover{color:var(--red)}.crumbs b{color:var(--ink);font-weight:600}
+.pv-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:start}
+.gallery{position:sticky;top:84px}
+.g-main{aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#f3f3f3;position:relative;border:1px solid #eee}
+.g-main img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.g-main .tag{font-size:10px;padding:5px 9px;top:12px;left:12px}
+.g-thumbs{display:flex;gap:10px;margin-top:12px}
+.g-thumb{width:72px;height:72px;border-radius:6px;overflow:hidden;border:2px solid transparent;padding:0;background:#f3f3f3;cursor:pointer;opacity:.75}
+.g-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.g-thumb.active{border-color:var(--red);opacity:1}
+.pv-info h1{font-size:30px;line-height:1.1;letter-spacing:-1px;margin:0 0 10px;font-weight:900}
+.pv-cat{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;font-weight:800;color:var(--red)}
+.pv-rating{font-size:13px;color:#e5b32d;margin-bottom:14px}.pv-rating small{color:#777;margin-left:4px}
+.pv-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.pv-price strong{font-size:28px;font-weight:900}.pv-price del{color:#888;font-size:16px}
+.pv-save{background:#fde8e9;color:var(--red);font-size:11px;font-weight:800;padding:4px 8px;border-radius:3px}
+.pv-desc{font-size:14px;line-height:1.7;color:#444;margin:0 0 20px}
+.pv-label{display:flex;justify-content:space-between;font-size:12px;font-weight:800;text-transform:uppercase;margin:18px 0 10px}
+.pv-label a{color:var(--muted);text-transform:none;font-weight:500;text-decoration:underline;cursor:pointer}
+.sizes{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:8px}
+.size-btn{height:44px;border:1px solid #ddd;background:#fff;border-radius:4px;font-weight:700;font-size:13px;cursor:pointer}
+.size-btn:hover{border-color:#111}.size-btn.active{background:#111;color:#fff;border-color:#111}
+.sizes.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.pv-buy{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.pv-qty{display:flex;align-items:center;border:1px solid #ddd;border-radius:4px;height:50px}
+.pv-qty button{width:42px;height:100%;border:0;background:none;font-size:20px;cursor:pointer}
+.pv-qty span{min-width:30px;text-align:center;font-weight:800}
+.pv-buy .btn{height:50px;font-size:12px;padding:0 24px;flex:1;justify-content:center;min-width:150px}
+.btn.dark{background:#111}.btn.dark:hover{background:#333}
+.btn.wa{background:#20bd5a}.btn.wa:hover{background:#199a49}
+.pv-perks{margin:24px 0 0;padding:16px;background:#f7f7f7;border-radius:8px;display:grid;gap:10px;font-size:13px;color:#444}
+.pv-perks div{display:flex;gap:10px;align-items:flex-start}
+.pv-details{margin-top:22px;border-top:1px solid #eee}
+.pv-details h4{font-size:12px;text-transform:uppercase;margin:16px 0 10px}
+.pv-details ul{margin:0;padding-left:18px;font-size:13px;line-height:1.9;color:#444}
+.pv-related{margin-top:50px}
+.pv-related h2{font-size:18px;text-transform:uppercase;font-weight:900;margin:0 0 16px}
+.pv-related .products{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.pv-related .product-name{font-size:12px}.pv-related .price{font-size:13px}
+@media(max-width:800px){
+ .pv{padding:14px 14px 30px}.pv-grid{grid-template-columns:1fr;gap:22px}.gallery{position:static}
+ .pv-info h1{font-size:25px}.pv-related .products{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .g-thumb{width:60px;height:60px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="topbar"><span>♧ &nbsp; Local delivery in Mtwapa & nearby areas</span><span>↻ &nbsp; Easy order updates on WhatsApp</span><span>★ &nbsp; Style that fits your day</span></div>
+<header class="navbar">
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+<a class="logo" href="#home">BETTY<span>♥</span><small>COLLECTIONS</small></a>
+<nav class="navlinks"><a href="#home">Home</a><a href="#products">Women</a><a href="#categories">Men</a><a href="#categories">Kids</a><a href="#products">New Arrivals</a><a href="#brands">Brands</a><a href="#sale">Sale</a></nav>
+<div class="navtools"><label class="search"><span>⌕</span><input id="searchInput" placeholder="Search styles..." aria-label="Search products"></label><button class="iconbtn" aria-label="WhatsApp" onclick="openWhatsApp()">♧</button><button class="iconbtn" id="cartOpen" aria-label="Open cart">🛍<span class="cart-count" id="cartCount">0</span></button></div>
+</header>
+<nav class="mobile-nav" id="mobileNav"><button class="close-cart" id="menuClose" aria-label="Close menu">×</button><a href="#home">Home</a><a href="#categories">Shop by category</a><a href="#products">Featured products</a><a href="#sale">Offers</a><a href="#brands">Brands</a><a href="#contact">Contact Betty Collections</a></nav>
+<main>
+<div id="homeView">
+<section class="hero" id="home" aria-label="Featured collections">
+<div class="hero-slide active" data-slide="0">
+  <div class="hero-copy"><div class="eyebrow">Fresh styles. New arrivals.</div><h1>STEP UP<br>YOUR STYLE</h1><p>Discover everyday favourites and standout styles at Betty Collections. Find your look, then order easily on WhatsApp.</p><div class="actions"><a class="btn" href="#products">Shop collection <span>→</span></a><a class="btn outline" href="#categories">Explore styles</a></div></div>
+  <img class="hero-image" src="assets/tan-derby.jpg" alt="Tan leather derby shoes" style="object-position:50% 74%">
+  <div class="discount">STYLE DEALS<br><b>30%</b><br>OFF SELECTED</div>
+</div>
+<div class="hero-slide" data-slide="1">
+  <div class="hero-copy"><div class="eyebrow">Smart looks for work</div><h1>MAKE A<br>GOOD IMPRESSION</h1><p>Discover polished leather official shoes for the office, meetings, events and everyday formal wear.</p><div class="actions"><a class="btn" href="#products" onclick="filterOfficial()">Shop official shoes <span>→</span></a><a class="btn outline" href="#categories">Explore collection</a></div></div>
+  <img class="hero-image" src="assets/black-oxford.jpg" alt="Black leather cap-toe oxford shoe" style="object-position:50% 68%">
+  <div class="discount">OFFICE<br><b>READY</b><br>EVERY DAY</div>
+</div>
+<div class="hero-slide" data-slide="2">
+  <div class="hero-copy"><div class="eyebrow">Your next favourite pair</div><h1>FIND YOUR<br>EVERYDAY FIT</h1><p>From casual favourites to sporty essentials, find styles that fit your day at Betty Collections, Mtwapa.</p><div class="actions"><a class="btn" href="#products">Browse products <span>→</span></a><a class="btn outline" href="#" onclick="openWhatsApp('Hi Betty Collections! Please share your latest arrivals.');return false;">Ask on WhatsApp</a></div></div>
+  <img class="hero-image framed" src="assets/brown-brogue.jpg" alt="Brown leather brogue-detail derby shoes">
+  <div class="discount">NEW<br><b>DROPS</b><br>WEEKLY</div>
+</div>
+<button class="hero-arrow prev" id="heroPrev" aria-label="Previous slide">‹</button>
+<button class="hero-arrow next" id="heroNext" aria-label="Next slide">›</button>
+<div class="hero-dots" aria-label="Choose featured slide"><button class="hero-dot active" data-go="0" aria-label="Slide 1"></button><button class="hero-dot" data-go="1" aria-label="Slide 2"></button><button class="hero-dot" data-go="2" aria-label="Slide 3"></button></div>
+</section>
+<section class="benefits">
+<div class="benefit"><span class="symbol">♧</span><div><strong>Local service</strong><small>Based in Mtwapa</small></div></div>
+<div class="benefit"><span class="symbol">□</span><div><strong>Easy ordering</strong><small>Order via WhatsApp</small></div></div>
+<div class="benefit"><span class="symbol">✓</span><div><strong>Personal service</strong><small>Help choosing your style</small></div></div>
+<div class="benefit"><span class="symbol">◉</span><div><strong>Quick response</strong><small>Chat with our team</small></div></div>
+</section>
+<section class="section" id="categories"><div class="section-head"><h2>Shop by category</h2><a class="text-link" href="#products">View all →</a></div>
+<div class="categories">
+<div class="category" data-category="Running"><strong>Running</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Running shoe"></div>
+<div class="category" data-category="Lifestyle"><strong>Lifestyle</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=400&q=80" alt="Lifestyle shoe"></div>
+<div class="category" data-category="Basketball"><strong>Basketball</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=400&q=80" alt="Basketball shoe"></div>
+<div class="category" data-category="Training"><strong>Training</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=400&q=80" alt="Training shoe"></div>
+<div class="category" data-category="Casual"><strong>Casual</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1520256862855-398228c41684?auto=format&fit=crop&w=400&q=80" alt="Casual shoe"></div>
+<div class="category" data-category="New Arrivals"><strong>New arrivals</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=400&q=80" alt="New arrival shoe"></div>
+<div class="category" data-category="Official"><strong>Leather official</strong><small>Shop now →</small><img src="assets/black-oxford.jpg" alt="Leather official shoes" style="object-fit:cover;object-position:50% 68%;height:78px;mix-blend-mode:normal"></div>
+</div></section>
+<section class="section" id="products"><div class="section-head"><h2>Featured collection</h2><a class="text-link" href="#products" id="clearFilter">View all products →</a></div><div class="products" id="productGrid"></div></section>
+<section class="promos" id="sale">
+<div class="promo"><div class="promo-copy"><small>Limited time offer</small><h3>GET 20% OFF</h3><p>On selected styles</p><button class="btn" onclick="showSale()">Shop the sale →</button></div><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80" alt="Red sneaker offer"></div>
+<div class="promo light"><div class="promo-copy"><small>Exclusive collection</small><h3>New drops<br>every week</h3><p>Don't miss your next favourite.</p><a class="btn" href="#products">Explore now →</a></div><img src="https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=600&q=80" alt="New sneaker collection"></div>
+</section>
+<section class="section" id="brands"><div class="section-head"><h2>Popular styles</h2><a class="text-link" href="#products">Shop collection →</a></div><div class="brands"><div class="brand">NIKE</div><div class="brand">adidas</div><div class="brand">JORDAN</div><div class="brand">NB</div><div class="brand">PUMA</div><div class="brand">CONVERSE</div><div class="brand">VANS</div><div class="brand">REEBOK</div></div></section>
+<section class="newsletter"><div><h3>Stay in the loop</h3><p>Want to see new arrivals and special offers? Send us a message and stay connected.</p></div><form class="email-form" id="newsletterForm"><input type="email" id="emailInput" placeholder="Enter your email address" aria-label="Email address" required><button type="submit">GET UPDATES</button></form><div class="socials"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="TikTok">♪</a><a href="#" aria-label="YouTube">▶</a></div></section>
+</div>
+<section id="productView" class="pv" hidden aria-live="polite"></section>
+</main>
+<footer class="footer" id="contact"><div><div class="footer-logo">BETTY<span>♥</span></div><p>Your destination for everyday style and fresh finds. Discover your look with Betty Collections.</p><p style="margin-top:8px">Mtwapa, Kenya</p></div><div><h4>Shop</h4><a href="#products">Featured collection</a><a href="#categories">Categories</a><a href="#sale">Special offers</a><a href="#products">New arrivals</a></div><div><h4>Customer care</h4><a href="#" onclick="openWhatsApp('Hi Betty Collections, I need help choosing a product.')">Contact us</a><a href="#" onclick="openWhatsApp('Hi, please share your delivery options.')">Delivery information</a><a href="#" onclick="openWhatsApp('Hi, I have a question about returns.')">Returns & exchanges</a></div><div><h4>About</h4><a href="#home">Our collection</a><a href="#contact">Visit / contact</a><a href="#" onclick="openWhatsApp()">WhatsApp us</a></div><div><h4>Contact us</h4><p>Mtwapa, Kenya</p><a href="tel:+254781287268">0781 287 268</a><a href="#" onclick="openWhatsApp()">Order on WhatsApp</a></div></footer>
+<div class="copyright">© <span id="year"></span> Betty Collections. All rights reserved.</div>
+<button class="whatsapp-float" onclick="openWhatsApp()" aria-label="Order on WhatsApp" title="Chat with Betty Collections">◉</button>
+<div class="overlay" id="overlay"></div><aside class="cart-panel" id="cartPanel" aria-label="Shopping cart"><div class="cart-head"><h3>Your collection <span id="cartTitleCount">(0)</span></h3><button class="close-cart" id="cartClose" aria-label="Close cart">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-bottom"><div class="total"><span>Estimated total</span><span id="cartTotal">KSh 0</span></div><button class="btn" onclick="checkoutWhatsApp()">Order on WhatsApp →</button><p style="font-size:10px;color:#777;line-height:1.5;margin:10px 0 0">Your order will open in WhatsApp for confirmation. Prices and availability will be confirmed by our team.</p></div></aside><div class="toast" id="toast"></div>
+<script>
+const WHATSAPP_NUMBER = "254781287268"; // Kenya country code + phone number without the leading 0
+const products = [
+{id:1,name:"Air Classic High-Top",category:"Basketball",price:3499,old:4299,tag:"New",rating:4.8,reviews:112,img:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"},
+{id:2,name:"Everyday Runner",category:"Running",price:2899,old:3499,tag:"Best seller",rating:4.7,reviews:423,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"},
+{id:3,name:"Urban Black Trainer",category:"Training",price:3199,old:0,tag:"",rating:4.6,reviews:298,img:"https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80"},
+{id:4,name:"Street Boost Runner",category:"Running",price:3799,old:4499,tag:"Sale",rating:4.7,reviews:287,img:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"},
+{id:5,name:"Low-Top Street Sneaker",category:"Lifestyle",price:2699,old:0,tag:"",rating:4.5,reviews:354,img:"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80"},
+{id:6,name:"Canvas High Classic",category:"Casual",price:2299,old:2599,tag:"Popular",rating:4.8,reviews:210,img:"https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=600&q=80"},
+{id:7,name:"Retro Court Sneaker",category:"Lifestyle",price:2999,old:3499,tag:"New",rating:4.6,reviews:85,img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80"},
+{id:8,name:"Lightweight Sport Shoe",category:"Training",price:2599,old:0,tag:"",rating:4.4,reviews:67,img:"https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80"},
+{id:9,name:"Red Accent Sneaker",category:"Casual",price:2799,old:3299,tag:"Sale",rating:4.7,reviews:129,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"},
+{id:10,name:"Classic White Low",category:"New Arrivals",price:2499,old:0,tag:"New",rating:4.5,reviews:94,img:"https://images.unsplash.com/photo-1520256862855-398228c41684?auto=format&fit=crop&w=600&q=80"},
+{id:11,name:"Everyday Comfort",category:"Lifestyle",price:2399,old:2799,tag:"Popular",rating:4.6,reviews:178,img:"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80"},
+{id:12,name:"Performance Runner",category:"Running",price:3299,old:0,tag:"",rating:4.7,reviews:144,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"},
+{id:13,name:"Black Cap-Toe Oxford",category:"Official",price:3999,old:4599,tag:"New",rating:4.8,reviews:56,img:"assets/black-oxford.jpg",pos:"50% 68%",gallery:[{pos:"50% 68%",zoom:1},{pos:"22% 72%",zoom:2.1},{pos:"80% 62%",zoom:2.1}],color:"Black"},
+{id:14,name:"Tan Leather Derby",category:"Official",price:3799,old:0,tag:"Popular",rating:4.7,reviews:42,img:"assets/tan-derby.jpg",pos:"50% 80%",gallery:[{pos:"50% 80%",zoom:1},{pos:"30% 78%",zoom:2},{pos:"75% 62%",zoom:2}],color:"Tan"},
+{id:15,name:"Brown Brogue-Detail Derby",category:"Official",price:3799,old:4299,tag:"Sale",rating:4.7,reviews:38,img:"assets/brown-brogue.jpg",pos:"50% 50%",gallery:[{pos:"50% 50%",zoom:1},{pos:"38% 72%",zoom:1.9}],color:"Brown"},
+{id:16,name:"Tan Cap-Toe Business Shoe",category:"Official",price:3599,old:0,tag:"New",rating:4.6,reviews:24,img:"assets/tan-captoe-street.jpg",pos:"50% 60%",gallery:[{pos:"50% 60%",zoom:1}],color:"Tan"},
+{id:17,name:"Dark Brown Plain-Toe Derby",category:"Official",price:3699,old:0,tag:"",rating:4.5,reviews:19,img:"assets/dark-brown-derby.jpg",pos:"50% 55%",gallery:[{pos:"50% 55%",zoom:1}],color:"Dark brown"}
+];
+const SIZES=[39,40,41,42,43,44,45];
+const DESC={Official:"A smart lace-up shoe for the office, meetings, church and special occasions. Clean lines, a comfortable fit and a finish that goes with suits, chinos and trousers.",Running:"Built for daily miles and weekend runs, with a cushioned feel and a grippy outsole to keep you moving.",Lifestyle:"An easy everyday sneaker that works with jeans, shorts and everything in between.",Basketball:"A high-top silhouette with bold style and a supportive feel on and off the court.",Training:"A flexible, lightweight trainer made for the gym, the track and long days on your feet.",Casual:"A relaxed everyday pair that pairs with almost anything in your wardrobe.","New Arrivals":"Fresh in at Betty Collections. A clean, versatile pair you can wear any day of the week."};
+const DETAILS={Official:["Lace-up fastening","Stitched upper with a smart finish","Durable, flexible outsole","Sizes EU 39 – 45"],_:["Lace-up fastening","Cushioned insole","Durable, grippy outsole","Sizes EU 39 – 45"]};
+products.forEach(p=>{p.desc=DESC[p.category]||DESC.Casual;p.details=DETAILS[p.category]||DETAILS._;p.pos=p.pos||"50% 50%";p.gallery=p.gallery||[{pos:p.pos,zoom:1}];p.color=p.color||""});
+
+let cart = [];
+let activeCategory = "";
+const kes = n => "KSh " + Number(n).toLocaleString("en-KE");
+const grid = document.getElementById("productGrid");
+function cardHTML(p){return `<article class="product"><div class="product-image" onclick="goProduct(${p.id})" role="link" aria-label="View ${p.name}"><img src="${p.img}" alt="${p.name}" loading="lazy" style="object-position:${p.pos}">${p.tag?`<span class="tag ${p.tag==='Best seller'?'dark':''}">${p.tag}</span>`:""}</div><div class="product-info"><div class="product-name" title="${p.name}" onclick="goProduct(${p.id})">${p.name}</div><div class="price">${kes(p.price)} ${p.old?`<span class="old-price">${kes(p.old)}</span>`:""}</div><div class="rating"><span>★★★★★ <small>(${p.reviews})</small></span><button class="add" aria-label="Add ${p.name} to cart" onclick="addToCart(${p.id})">+</button></div></div></article>`}
+function goProduct(id){location.hash="#/product/"+id}
+function renderProducts(){
+ const query=document.getElementById("searchInput").value.trim().toLowerCase();
+ const shown=products.filter(p=>(!activeCategory||p.category===activeCategory||p.name.toLowerCase().includes(activeCategory.toLowerCase()))&&(!query||(p.name+" "+p.category).toLowerCase().includes(query)));
+ grid.innerHTML=shown.length?shown.map(cardHTML).join(""):'<p style="grid-column:1/-1;padding:25px;color:#777">No products match your search. Try another keyword.</p>';
+}
+function showToast(message){const t=document.getElementById("toast");t.textContent=message;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2400)}
+function addToCart(id,size=null,qty=1){const p=products.find(x=>x.id===id);const key=id+"|"+(size||"");const item=cart.find(x=>x.key===key);if(item)item.qty+=qty;else cart.push({...p,key,size,qty});renderCart();showToast(p.name+(size?" (EU "+size+")":"")+" added to your collection");}
+function renderCart(){const count=cart.reduce((s,p)=>s+p.qty,0);document.getElementById("cartCount").textContent=count;document.getElementById("cartTitleCount").textContent="("+count+")";document.getElementById("cartTotal").textContent=kes(cart.reduce((s,p)=>s+p.price*p.qty,0));const holder=document.getElementById("cartItems");holder.innerHTML=cart.length?cart.map(p=>`<div class="cart-row"><img src="${p.img}" alt="" style="object-position:${p.pos}"><div><strong>${p.name}</strong><small>${p.size?"EU "+p.size+" · ":""}${kes(p.price)} each</small><div class="qty"><button onclick="changeQty('${p.key}',-1)" aria-label="Decrease quantity">−</button><span>${p.qty}</span><button onclick="changeQty('${p.key}',1)" aria-label="Increase quantity">+</button></div></div><strong>${kes(p.price*p.qty)}</strong></div>`).join(""):'<div class="empty-cart">Your collection is empty.<br><br>Add a few styles you love.</div>'}
+function changeQty(key,delta){const p=cart.find(x=>x.key===key);if(!p)return;p.qty+=delta;if(p.qty<=0)cart=cart.filter(x=>x.key!==key);renderCart()}
+function openCart(){document.getElementById("cartPanel").classList.add("open");document.getElementById("overlay").classList.add("show")}
+function closeCart(){document.getElementById("cartPanel").classList.remove("open");document.getElementById("overlay").classList.remove("show")}
+function openWhatsApp(message="Hi Betty Collections! I'd like to enquire about your collection."){window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank","noopener")}
+function checkoutWhatsApp(){if(!cart.length){showToast("Your collection is empty");return}const lines=cart.map(p=>`• ${p.name}${p.size?" (EU "+p.size+")":""} x ${p.qty} — ${kes(p.price*p.qty)}`);const total=cart.reduce((s,p)=>s+p.price*p.qty,0);const message=`Hello Betty Collections! I'd like to place an order:\n\n${lines.join("\n")}\n\nEstimated total: ${kes(total)}\n\nPlease confirm availability, sizes, delivery/pickup options in Mtwapa, and final total.`;openWhatsApp(message)}
+function showSale(){activeCategory="";renderProducts();document.getElementById("searchInput").value="";showToast("Ask us on WhatsApp for current sale items.");openWhatsApp("Hi Betty Collections! Please share the current sale items and available offers.")}
+function filterOfficial(){activeCategory="Official";document.getElementById("searchInput").value="";renderProducts()}
+let heroIndex=0, heroTimer;
+function showHeroSlide(index){
+ const slides=[...document.querySelectorAll(".hero-slide")], dots=[...document.querySelectorAll(".hero-dot")];
+ if(!slides.length)return;
+ heroIndex=(index+slides.length)%slides.length;
+ slides.forEach((slide,i)=>slide.classList.toggle("active",i===heroIndex));
+ dots.forEach((dot,i)=>dot.classList.toggle("active",i===heroIndex));
+}
+function restartHeroTimer(){clearInterval(heroTimer);heroTimer=setInterval(()=>showHeroSlide(heroIndex+1),6000)}
+document.getElementById("heroPrev").addEventListener("click",()=>{showHeroSlide(heroIndex-1);restartHeroTimer()});
+document.getElementById("heroNext").addEventListener("click",()=>{showHeroSlide(heroIndex+1);restartHeroTimer()});
+document.querySelectorAll(".hero-dot").forEach(dot=>dot.addEventListener("click",()=>{showHeroSlide(Number(dot.dataset.go));restartHeroTimer()}));
+restartHeroTimer();
+
+document.getElementById("searchInput").addEventListener("input",()=>{activeCategory="";renderProducts();if(location.hash.startsWith("#/product/"))location.hash="#products"});
+document.querySelectorAll(".category").forEach(el=>el.addEventListener("click",()=>{activeCategory=el.dataset.category;document.getElementById("searchInput").value="";renderProducts();document.getElementById("products").scrollIntoView({behavior:"smooth"});}));
+document.getElementById("clearFilter").addEventListener("click",()=>{activeCategory="";document.getElementById("searchInput").value="";renderProducts()});
+document.getElementById("cartOpen").addEventListener("click",openCart);document.getElementById("cartClose").addEventListener("click",closeCart);document.getElementById("overlay").addEventListener("click",closeCart);
+document.getElementById("menuToggle").addEventListener("click",()=>{document.getElementById("mobileNav").classList.add("open");document.getElementById("overlay").classList.add("show")});
+document.getElementById("menuClose").addEventListener("click",()=>{document.getElementById("mobileNav").classList.remove("open");document.getElementById("overlay").classList.remove("show")});
+document.querySelectorAll(".mobile-nav a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("mobileNav").classList.remove("open");document.getElementById("overlay").classList.remove("show")}));
+document.getElementById("newsletterForm").addEventListener("submit",e=>{e.preventDefault();openWhatsApp("Hi Betty Collections! Please add me to updates. My email is "+document.getElementById("emailInput").value);showToast("Opening WhatsApp to request updates")});
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();renderCart();
+/* ---------- Product page ---------- */
+let pvState={id:null,size:null,qty:1,view:0};
+function renderProduct(p){
+ pvState={id:p.id,size:null,qty:1,view:0};
+ const save=p.old?Math.round((1-p.price/p.old)*100):0;
+ const related=products.filter(x=>x.id!==p.id&&x.category===p.category);
+ const more=related.concat(products.filter(x=>x.id!==p.id&&x.category!==p.category)).slice(0,4);
+ const thumbs=p.gallery.length>1?`<div class="g-thumbs">${p.gallery.map((g,i)=>`<button class="g-thumb ${i?"":"active"}" data-view="${i}" aria-label="View ${i+1}"><img src="${p.img}" alt="" style="object-position:${g.pos};transform:scale(${g.zoom});transform-origin:${g.pos}"></button>`).join("")}</div>`:"";
+ const g0=p.gallery[0];
+ document.getElementById("productView").innerHTML=`
+ <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a> / <a href="#products" onclick="activeCategory='${p.category}';renderProducts()">${p.category==="Official"?"Leather official":p.category}</a> / <b>${p.name}</b></nav>
+ <div class="pv-grid">
+  <div class="gallery"><div class="g-main" id="gMain"><img id="gImg" src="${p.img}" alt="${p.name}" style="object-position:${g0.pos};transform:scale(${g0.zoom});transform-origin:${g0.pos}">${p.tag?`<span class="tag ${p.tag==='Best seller'?'dark':''}">${p.tag}</span>`:""}</div>${thumbs}</div>
+  <div class="pv-info">
+   <div class="pv-cat">${p.category==="Official"?"Leather official":p.category}</div>
+   <h1>${p.name}</h1>
+   <div class="pv-rating">★★★★★ <small>${p.rating} · ${p.reviews} reviews</small></div>
+   <div class="pv-price"><strong>${kes(p.price)}</strong>${p.old?`<del>${kes(p.old)}</del><span class="pv-save">SAVE ${save}%</span>`:""}</div>
+   <p class="pv-desc">${p.desc}</p>
+   ${p.color?`<div class="pv-label"><span>Colour: <b style="font-weight:600;text-transform:none">${p.color}</b></span></div>`:""}
+   <div class="pv-label"><span>Select size (EU)</span><a onclick="openWhatsApp('Hi Betty Collections, please help me choose a size for the ${p.name}.')">Need help?</a></div>
+   <div class="sizes" id="sizes">${SIZES.map(z=>`<button class="size-btn" data-size="${z}">${z}</button>`).join("")}</div>
+   <div class="pv-buy">
+    <div class="pv-qty"><button id="qMinus" aria-label="Decrease quantity">−</button><span id="qVal">1</span><button id="qPlus" aria-label="Increase quantity">+</button></div>
+    <button class="btn dark" id="pvAdd">Add to cart</button>
+    <button class="btn wa" id="pvWa">Order on WhatsApp</button>
+   </div>
+   <div class="pv-perks"><div>📍 <span>Local delivery in Mtwapa &amp; nearby areas</span></div><div>💬 <span>Availability, final price and delivery confirmed with you on WhatsApp</span></div><div>👟 <span>Not sure of your size? Message us and we'll help</span></div></div>
+   <div class="pv-details"><h4>Product details</h4><ul>${p.details.map(d=>`<li>${d}</li>`).join("")}</ul></div>
+  </div>
+ </div>
+ <div class="pv-related"><h2>You may also like</h2><div class="products">${more.map(cardHTML).join("")}</div></div>`;
+ const view=document.getElementById("productView");
+ view.querySelectorAll(".g-thumb").forEach(t=>t.addEventListener("click",()=>{const g=p.gallery[+t.dataset.view];const im=document.getElementById("gImg");im.style.objectPosition=g.pos;im.style.transformOrigin=g.pos;im.style.transform="scale("+g.zoom+")";view.querySelectorAll(".g-thumb").forEach(x=>x.classList.toggle("active",x===t))}));
+ view.querySelectorAll(".size-btn").forEach(b=>b.addEventListener("click",()=>{pvState.size=+b.dataset.size;view.querySelectorAll(".size-btn").forEach(x=>x.classList.toggle("active",x===b))}));
+ document.getElementById("qMinus").onclick=()=>{pvState.qty=Math.max(1,pvState.qty-1);document.getElementById("qVal").textContent=pvState.qty};
+ document.getElementById("qPlus").onclick=()=>{pvState.qty=Math.min(10,pvState.qty+1);document.getElementById("qVal").textContent=pvState.qty};
+ const needSize=()=>{if(pvState.size)return false;const z=document.getElementById("sizes");z.classList.remove("shake");void z.offsetWidth;z.classList.add("shake");showToast("Please select a size first");return true};
+ document.getElementById("pvAdd").onclick=()=>{if(needSize())return;addToCart(p.id,pvState.size,pvState.qty);openCart()};
+ document.getElementById("pvWa").onclick=()=>{if(needSize())return;openWhatsApp(`Hello Betty Collections! I'd like to order:\n\n• ${p.name} (EU ${pvState.size}) x ${pvState.qty} — ${kes(p.price*pvState.qty)}\n\nPlease confirm availability, delivery/pickup options in Mtwapa, and the final total.`)};
+}
+const DEFAULT_TITLE=document.title;
+function route(){
+ const h=location.hash,m=h.match(/^#\/product\/(\d+)/),home=document.getElementById("homeView"),pvEl=document.getElementById("productView");
+ const p=m&&products.find(x=>x.id===+m[1]);
+ if(p){renderProduct(p);home.hidden=true;pvEl.hidden=false;document.title=p.name+" | Betty Collections";window.scrollTo(0,0);return}
+ const wasHidden=home.hidden;pvEl.hidden=true;home.hidden=false;document.title=DEFAULT_TITLE;
+ if(h&&!h.startsWith("#/")){const el=document.querySelector(h);if(el)el.scrollIntoView()}else if(wasHidden)window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+route();
+</script>
+</body>
+</html>
