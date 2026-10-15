@@ -19,6 +19,6 @@ Open `index.html` in a browser, or serve this folder with any static web server.
 ## Important setup notes
 - WhatsApp order number is configured in `index.html` as `254781287268` (Kenyan international format for 0781287268).
 - Product names, sample prices, images and categories are demo content. Replace them with Betty Collections' actual catalog before publishing.
-- Official-shoe photos live in `assets/` (keep this folder next to `index.html`). Sneaker photos are still loaded from Unsplash and need an internet connection.
+- Official-shoe photos live in `assets/` (keep this folder next to `index.html`). All shoe photos are now local in `assets/shoes/`, so the site works offline (apart from the Google font).
 - To add a product, add an entry to the `products` array in `index.html` (`img`, `pos` focal point, optional `gallery` detail views).
 - This MVP has no backend, payment gateway, stock database, or admin panel. WhatsApp is used to confirm orders.

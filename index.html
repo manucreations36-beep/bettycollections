@@ -6,7 +6,6 @@
 <meta name="theme-color" content="#111111">
 <title>Betty Collections | Step Into Your Style</title>
 <meta name="description" content="Shop fresh sneakers and everyday styles at Betty Collections, Mtwapa. Order easily on WhatsApp.">
-<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -166,6 +165,26 @@
  .hero-dots{bottom:7px;gap:5px}.hero-dot{width:6px;height:6px}.hero-dot.active{width:15px}
 }
 @media(max-width:380px){.hero-slide .discount{display:none}}
+
+/* ===== Real photos: tiles, promos, hero squares ===== */
+.category{height:auto;aspect-ratio:1/1;padding:0;background:#f3f3f3}
+.category img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:normal;transition:transform .35s}
+.category:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.category .cat-label{position:absolute;left:0;right:0;bottom:0;padding:12px;z-index:2;color:#fff}
+.category strong{font-size:13px;letter-spacing:-.2px}.category small{font-size:10px;opacity:.85;margin-top:3px}
+.category:hover img{transform:scale(1.06)}.category:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+@media(max-width:600px){.category{height:auto}.category img{height:100%}.category strong{font-size:12px}}
+.promo img{width:auto;height:100%;aspect-ratio:1/1;object-fit:cover}
+.promo:not(.light) img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%)}
+.promo.light{background:#f3f3f3}
+.hero-slide .hero-image.framed.sq{aspect-ratio:1/1;right:12%}
+@media(max-width:900px){.hero-slide .hero-image.framed.sq{right:5%}}
+@media(max-width:600px){
+ .hero-slide{padding-left:32px}
+ .hero-slide .hero-copy{max-width:47%;width:47%}
+ .hero-slide .hero-image.framed.sq{right:3.5%;top:34px;height:calc(100% - 68px);aspect-ratio:1/1}
+ .hero-slide .discount{display:none}
+}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -198,12 +217,12 @@
 </div>
 <div class="hero-slide" data-slide="3">
   <div class="hero-copy"><div class="eyebrow">Relaxed everyday wear</div><h1>CASUAL<br>COMFORT</h1><p>Easy, versatile casual shoes that go with jeans, shorts and everything in between. Comfortable from morning to night.</p><div class="actions"><a class="btn" href="#products" onclick="filterCategory('Casual')">Shop casual <span>→</span></a><a class="btn outline" href="#categories">Explore styles</a></div></div>
-  <img class="hero-image framed" src="https://images.unsplash.com/photo-1520256862855-398228c41684?auto=format&fit=crop&w=900&q=80" alt="Casual sneakers" style="object-position:50% 55%">
+  <img class="hero-image framed sq" src="assets/shoes/blue-canvas-low.jpg" alt="Blue canvas casual sneakers">
   <div class="discount">EASY<br><b>CASUAL</b><br>STYLES</div>
 </div>
 <div class="hero-slide" data-slide="4">
   <div class="hero-copy"><div class="eyebrow">Built to move</div><h1>TRAIN<br>HARDER</h1><p>Lightweight, flexible training shoes for the gym, the track and long days on your feet. Order yours on WhatsApp.</p><div class="actions"><a class="btn" href="#products" onclick="filterCategory('Training')">Shop training <span>→</span></a><a class="btn outline" href="#categories">Explore styles</a></div></div>
-  <img class="hero-image framed" src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=900&q=80" alt="Training shoes" style="object-position:50% 55%">
+  <img class="hero-image framed sq" src="assets/shoes/black-pro-boost.jpg" alt="Black training shoes">
   <div class="discount">GYM<br><b>READY</b><br>PERFORMANCE</div>
 </div>
 <button class="hero-arrow prev" id="heroPrev" aria-label="Previous slide">‹</button>
@@ -218,18 +237,18 @@
 </section>
 <section class="section" id="categories"><div class="section-head"><h2>Shop by category</h2><a class="text-link" href="#products">View all →</a></div>
 <div class="categories">
-<div class="category" data-category="Running"><strong>Running</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Running shoe"></div>
-<div class="category" data-category="Lifestyle"><strong>Lifestyle</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=400&q=80" alt="Lifestyle shoe"></div>
-<div class="category" data-category="Basketball"><strong>Basketball</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=400&q=80" alt="Basketball shoe"></div>
-<div class="category" data-category="Training"><strong>Training</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=400&q=80" alt="Training shoe"></div>
-<div class="category" data-category="Casual"><strong>Casual</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1520256862855-398228c41684?auto=format&fit=crop&w=400&q=80" alt="Casual shoe"></div>
-<div class="category" data-category="New Arrivals"><strong>New arrivals</strong><small>Shop now →</small><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=400&q=80" alt="New arrival shoe"></div>
-<div class="category" data-category="Official"><strong>Leather official</strong><small>Shop now →</small><img src="assets/black-oxford.jpg" alt="Leather official shoes" style="object-fit:cover;object-position:50% 68%;height:78px;mix-blend-mode:normal"></div>
+<div class="category" data-category="Running" role="button" tabindex="0"><img src="assets/shoes/blue-everyday-runner.jpg" alt="Running shoe" loading="lazy" style="object-position:50% 50%"><div class="cat-label"><strong>Running</strong><small>Shop now →</small></div></div>
+<div class="category" data-category="Lifestyle" role="button" tabindex="0"><img src="assets/shoes/retro-red-accent.jpg" alt="Lifestyle shoe" loading="lazy" style="object-position:50% 50%"><div class="cat-label"><strong>Lifestyle</strong><small>Shop now →</small></div></div>
+<div class="category" data-category="Basketball" role="button" tabindex="0"><img src="assets/shoes/court-classic-high.jpg" alt="Basketball high-top" loading="lazy" style="object-position:50% 50%"><div class="cat-label"><strong>Basketball</strong><small>Shop now →</small></div></div>
+<div class="category" data-category="Training" role="button" tabindex="0"><img src="assets/shoes/black-flame-trainer.jpg" alt="Training shoe" loading="lazy" style="object-position:50% 50%"><div class="cat-label"><strong>Training</strong><small>Shop now →</small></div></div>
+<div class="category" data-category="Casual" role="button" tabindex="0"><img src="assets/shoes/white-grey-court.jpg" alt="Casual shoe" loading="lazy" style="object-position:50% 50%"><div class="cat-label"><strong>Casual</strong><small>Shop now →</small></div></div>
+<div class="category" data-category="New Arrivals" role="button" tabindex="0"><img src="assets/shoes/minimal-white-leather.jpg" alt="New arrival shoe" loading="lazy" style="object-position:50% 50%"><div class="cat-label"><strong>New arrivals</strong><small>Shop now →</small></div></div>
+<div class="category" data-category="Official" role="button" tabindex="0"><img src="assets/black-oxford.jpg" alt="Leather official shoes" loading="lazy" style="object-position:50% 68%"><div class="cat-label"><strong>Leather official</strong><small>Shop now →</small></div></div>
 </div></section>
 <section class="section" id="products"><div class="section-head"><h2>Featured collection</h2><a class="text-link" href="#products" id="clearFilter">View all products →</a></div><div class="products" id="productGrid"></div></section>
 <section class="promos" id="sale">
-<div class="promo"><div class="promo-copy"><small>Limited time offer</small><h3>GET 20% OFF</h3><p>On selected styles</p><button class="btn" onclick="showSale()">Shop the sale →</button></div><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80" alt="Red sneaker offer"></div>
-<div class="promo light"><div class="promo-copy"><small>Exclusive collection</small><h3>New drops<br>every week</h3><p>Don't miss your next favourite.</p><a class="btn" href="#products">Explore now →</a></div><img src="https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=600&q=80" alt="New sneaker collection"></div>
+<div class="promo"><div class="promo-copy"><small>Limited time offer</small><h3>GET 20% OFF</h3><p>On selected styles</p><button class="btn" onclick="showSale()">Shop the sale →</button></div><img src="assets/shoes/court-classic-high.jpg" alt="Court Classic High sneakers" style="object-position:50% 40%"></div>
+<div class="promo light"><div class="promo-copy"><small>Exclusive collection</small><h3>New drops<br>every week</h3><p>Don't miss your next favourite.</p><a class="btn" href="#products">Explore now →</a></div><img src="assets/shoes/white-platform.jpg" alt="White platform sneakers"></div>
 </section>
 <section class="section" id="brands"><div class="section-head"><h2>Popular styles</h2><a class="text-link" href="#products">Shop collection →</a></div><div class="brands"><div class="brand">NIKE</div><div class="brand">adidas</div><div class="brand">JORDAN</div><div class="brand">NB</div><div class="brand">PUMA</div><div class="brand">CONVERSE</div><div class="brand">VANS</div><div class="brand">REEBOK</div></div></section>
 <section class="newsletter"><div><h3>Stay in the loop</h3><p>Want to see new arrivals and special offers? Send us a message and stay connected.</p></div><form class="email-form" id="newsletterForm"><input type="email" id="emailInput" placeholder="Enter your email address" aria-label="Email address" required><button type="submit">GET UPDATES</button></form><div class="socials"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="TikTok">♪</a><a href="#" aria-label="YouTube">▶</a></div></section>
@@ -243,18 +262,26 @@
 <script>
 const WHATSAPP_NUMBER = "254781287268"; // Kenya country code + phone number without the leading 0
 const products = [
-{id:1,name:"Air Classic High-Top",category:"Basketball",price:3499,old:4299,tag:"New",rating:4.8,reviews:112,img:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"},
-{id:2,name:"Everyday Runner",category:"Running",price:2899,old:3499,tag:"Best seller",rating:4.7,reviews:423,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"},
-{id:3,name:"Urban Black Trainer",category:"Training",price:3199,old:0,tag:"",rating:4.6,reviews:298,img:"https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80"},
-{id:4,name:"Street Boost Runner",category:"Running",price:3799,old:4499,tag:"Sale",rating:4.7,reviews:287,img:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"},
-{id:5,name:"Low-Top Street Sneaker",category:"Lifestyle",price:2699,old:0,tag:"",rating:4.5,reviews:354,img:"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80"},
-{id:6,name:"Canvas High Classic",category:"Casual",price:2299,old:2599,tag:"Popular",rating:4.8,reviews:210,img:"https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=600&q=80"},
-{id:7,name:"Retro Court Sneaker",category:"Lifestyle",price:2999,old:3499,tag:"New",rating:4.6,reviews:85,img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80"},
-{id:8,name:"Lightweight Sport Shoe",category:"Training",price:2599,old:0,tag:"",rating:4.4,reviews:67,img:"https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80"},
-{id:9,name:"Red Accent Sneaker",category:"Casual",price:2799,old:3299,tag:"Sale",rating:4.7,reviews:129,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"},
-{id:10,name:"Classic White Low",category:"New Arrivals",price:2499,old:0,tag:"New",rating:4.5,reviews:94,img:"https://images.unsplash.com/photo-1520256862855-398228c41684?auto=format&fit=crop&w=600&q=80"},
-{id:11,name:"Everyday Comfort",category:"Lifestyle",price:2399,old:2799,tag:"Popular",rating:4.6,reviews:178,img:"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80"},
-{id:12,name:"Performance Runner",category:"Running",price:3299,old:0,tag:"",rating:4.7,reviews:144,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"},
+{id:1,name:"Everyday Runner",category:"Running",price:2899,old:3499,tag:"Best seller",rating:4.7,reviews:423,img:"assets/shoes/blue-everyday-runner.jpg"},
+{id:18,name:"White Platform Sneaker",category:"Casual",price:2999,old:3499,tag:"Popular",rating:4.8,reviews:310,img:"assets/shoes/white-platform.jpg"},
+{id:10,name:"Court Classic High",category:"Basketball",price:4499,old:4999,tag:"New",rating:4.9,reviews:96,img:"assets/shoes/court-classic-high.jpg"},
+{id:4,name:"Air Flex Trainer",category:"Training",price:3299,old:3799,tag:"New",rating:4.7,reviews:187,img:"assets/shoes/white-air-trainer.jpg"},
+{id:11,name:"Red Street High-Top",category:"Basketball",price:3299,old:3799,tag:"Sale",rating:4.7,reviews:129,img:"assets/shoes/red-high-top.jpg"},
+{id:19,name:"Blue Canvas Low",category:"Casual",price:2299,old:2599,tag:"Popular",rating:4.6,reviews:210,img:"assets/shoes/blue-canvas-low.jpg"},
+{id:2,name:"Cloud Stride Runner",category:"Running",price:3999,old:0,tag:"New",rating:4.8,reviews:142,img:"assets/shoes/grey-cloud-runner.jpg"},
+{id:23,name:"Retro Court Red Accent",category:"Lifestyle",price:3199,old:3699,tag:"New",rating:4.6,reviews:85,img:"assets/shoes/retro-red-accent.jpg"},
+{id:3,name:"Pro Boost Trainer",category:"Training",price:3799,old:4499,tag:"Sale",rating:4.7,reviews:287,img:"assets/shoes/black-pro-boost.jpg"},
+{id:12,name:"Knit Street Sneaker",category:"Casual",price:2699,old:0,tag:"New",rating:4.5,reviews:154,img:"assets/shoes/black-knit.jpg"},
+{id:8,name:"Studio High-Top Sneaker",category:"Basketball",price:3499,old:4199,tag:"",rating:4.6,reviews:98,img:"assets/shoes/black-studio-high.jpg"},
+{id:21,name:"Court Low White & Grey",category:"Casual",price:2799,old:3299,tag:"Sale",rating:4.7,reviews:176,img:"assets/shoes/white-grey-court.jpg"},
+{id:5,name:"Urban Black Trainer",category:"Training",price:3199,old:0,tag:"",rating:4.6,reviews:298,img:"assets/shoes/black-flame-trainer.jpg"},
+{id:24,name:"Suede Court Classic",category:"Lifestyle",price:3399,old:0,tag:"Popular",rating:4.7,reviews:121,img:"assets/shoes/suede-court.jpg"},
+{id:9,name:"Air Cushion High-Top",category:"Basketball",price:3699,old:0,tag:"",rating:4.5,reviews:74,img:"assets/shoes/black-cushion-high.jpg"},
+{id:20,name:"Canvas High Classic",category:"Casual",price:2299,old:0,tag:"",rating:4.8,reviews:356,img:"assets/shoes/black-canvas-high.jpg"},
+{id:6,name:"Grey Leather Trainer",category:"Training",price:2999,old:3499,tag:"Sale",rating:4.5,reviews:67,img:"assets/shoes/grey-leather-trainer.jpg"},
+{id:25,name:"Minimal White Leather",category:"New Arrivals",price:3499,old:0,tag:"New",rating:4.8,reviews:64,img:"assets/shoes/minimal-white-leather.jpg"},
+{id:7,name:"Stealth Leather Trainer",category:"Training",price:3299,old:0,tag:"Popular",rating:4.6,reviews:112,img:"assets/shoes/black-leather-trainer.jpg"},
+{id:22,name:"Zip Comfort Mid",category:"Lifestyle",price:2899,old:0,tag:"",rating:4.4,reviews:58,img:"assets/shoes/beige-zip-mid.jpg"},
 {id:13,name:"Black Cap-Toe Oxford",category:"Official",price:3999,old:4599,tag:"New",rating:4.8,reviews:56,img:"assets/black-oxford.jpg",pos:"50% 68%",gallery:[{pos:"50% 68%",zoom:1},{pos:"22% 72%",zoom:2.1},{pos:"80% 62%",zoom:2.1}],color:"Black"},
 {id:14,name:"Tan Leather Derby",category:"Official",price:3799,old:0,tag:"Popular",rating:4.7,reviews:42,img:"assets/tan-derby.jpg",pos:"50% 80%",gallery:[{pos:"50% 80%",zoom:1},{pos:"30% 78%",zoom:2},{pos:"75% 62%",zoom:2}],color:"Tan"},
 {id:15,name:"Brown Brogue-Detail Derby",category:"Official",price:3799,old:4299,tag:"Sale",rating:4.7,reviews:38,img:"assets/brown-brogue.jpg",pos:"50% 50%",gallery:[{pos:"50% 50%",zoom:1},{pos:"38% 72%",zoom:1.9}],color:"Brown"},
@@ -303,6 +330,7 @@ document.querySelectorAll(".hero-dot").forEach(dot=>dot.addEventListener("click"
 restartHeroTimer();
 
 document.getElementById("searchInput").addEventListener("input",()=>{activeCategory="";renderProducts();if(location.hash.startsWith("#/product/"))location.hash="#products"});
+document.querySelectorAll(".category").forEach(el=>el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();el.click()}}));
 document.querySelectorAll(".category").forEach(el=>el.addEventListener("click",()=>{activeCategory=el.dataset.category;document.getElementById("searchInput").value="";renderProducts();document.getElementById("products").scrollIntoView({behavior:"smooth"});}));
 document.getElementById("clearFilter").addEventListener("click",()=>{activeCategory="";document.getElementById("searchInput").value="";renderProducts()});
 document.getElementById("cartOpen").addEventListener("click",openCart);document.getElementById("cartClose").addEventListener("click",closeCart);document.getElementById("overlay").addEventListener("click",closeCart);
