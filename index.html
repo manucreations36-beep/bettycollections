@@ -185,6 +185,15 @@
  .hero-slide .hero-image.framed.sq{right:3.5%;top:34px;height:calc(100% - 68px);aspect-ratio:1/1}
  .hero-slide .discount{display:none}
 }
+
+/* ===== Categories: horizontal swipe row on phones ===== */
+@media(max-width:600px){
+ #categories{padding-right:0}
+ #categories .section-head{padding-right:14px}
+ .categories{display:flex;grid-template-columns:none;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding:0 14px 8px 0;margin-right:0;scrollbar-width:none}
+ .categories::-webkit-scrollbar{display:none}
+ .categories .category{flex:0 0 38vw;max-width:170px;scroll-snap-align:start}
+}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -201,33 +210,23 @@
 <div id="homeView">
 <section class="hero" id="home" aria-label="Featured collections">
 <div class="hero-slide active" data-slide="0">
-  <div class="hero-copy"><div class="eyebrow">Fresh styles. New arrivals.</div><h1>STEP UP<br>YOUR STYLE</h1><p>Discover everyday favourites and standout styles at Betty Collections. Find your look, then order easily on WhatsApp.</p><div class="actions"><a class="btn" href="#products">Shop collection <span>→</span></a><a class="btn outline" href="#categories">Explore styles</a></div></div>
-  <img class="hero-image" src="assets/tan-derby.jpg" alt="Tan leather derby shoes" style="object-position:50% 74%">
-  <div class="discount">STYLE DEALS<br><b>30%</b><br>OFF SELECTED</div>
-</div>
-<div class="hero-slide" data-slide="1">
-  <div class="hero-copy"><div class="eyebrow">Smart looks for work</div><h1>MAKE A<br>GOOD IMPRESSION</h1><p>Discover polished leather official shoes for the office, meetings, events and everyday formal wear.</p><div class="actions"><a class="btn" href="#products" onclick="filterOfficial()">Shop official shoes <span>→</span></a><a class="btn outline" href="#categories">Explore collection</a></div></div>
-  <img class="hero-image" src="assets/black-oxford.jpg" alt="Black leather cap-toe oxford shoe" style="object-position:50% 68%">
-  <div class="discount">OFFICE<br><b>READY</b><br>EVERY DAY</div>
-</div>
-<div class="hero-slide" data-slide="2">
-  <div class="hero-copy"><div class="eyebrow">Your next favourite pair</div><h1>FIND YOUR<br>EVERYDAY FIT</h1><p>From casual favourites to sporty essentials, find styles that fit your day at Betty Collections, Mtwapa.</p><div class="actions"><a class="btn" href="#products">Browse products <span>→</span></a><a class="btn outline" href="#" onclick="openWhatsApp('Hi Betty Collections! Please share your latest arrivals.');return false;">Ask on WhatsApp</a></div></div>
-  <img class="hero-image framed" src="assets/brown-brogue.jpg" alt="Brown leather brogue-detail derby shoes">
-  <div class="discount">NEW<br><b>DROPS</b><br>WEEKLY</div>
-</div>
-<div class="hero-slide" data-slide="3">
   <div class="hero-copy"><div class="eyebrow">Relaxed everyday wear</div><h1>CASUAL<br>COMFORT</h1><p>Easy, versatile casual shoes that go with jeans, shorts and everything in between. Comfortable from morning to night.</p><div class="actions"><a class="btn" href="#products" onclick="filterCategory('Casual')">Shop casual <span>→</span></a><a class="btn outline" href="#categories">Explore styles</a></div></div>
-  <img class="hero-image framed sq" src="assets/shoes/blue-canvas-low.jpg" alt="Blue canvas casual sneakers">
+  <img class="hero-image framed sq" src="assets/shoes/blue-canvas-low.jpg" alt="Blue canvas casual sneakers" style="object-position:50% 50%">
   <div class="discount">EASY<br><b>CASUAL</b><br>STYLES</div>
 </div>
-<div class="hero-slide" data-slide="4">
+<div class="hero-slide" data-slide="1">
   <div class="hero-copy"><div class="eyebrow">Built to move</div><h1>TRAIN<br>HARDER</h1><p>Lightweight, flexible training shoes for the gym, the track and long days on your feet. Order yours on WhatsApp.</p><div class="actions"><a class="btn" href="#products" onclick="filterCategory('Training')">Shop training <span>→</span></a><a class="btn outline" href="#categories">Explore styles</a></div></div>
-  <img class="hero-image framed sq" src="assets/shoes/black-pro-boost.jpg" alt="Black training shoes">
+  <img class="hero-image framed sq" src="assets/shoes/black-pro-boost.jpg" alt="Black training shoes" style="object-position:50% 50%" loading="lazy">
   <div class="discount">GYM<br><b>READY</b><br>PERFORMANCE</div>
+</div>
+<div class="hero-slide" data-slide="2">
+  <div class="hero-copy"><div class="eyebrow">Smart looks for work</div><h1>MAKE A<br>GOOD IMPRESSION</h1><p>Discover polished leather official shoes for the office, meetings, events and everyday formal wear.</p><div class="actions"><a class="btn" href="#products" onclick="filterOfficial()">Shop official shoes <span>→</span></a><a class="btn outline" href="#categories">Explore styles</a></div></div>
+  <img class="hero-image framed sq" src="assets/black-oxford.jpg" alt="Black leather cap-toe oxford shoe" style="object-position:50% 68%" loading="lazy">
+  <div class="discount">OFFICE<br><b>READY</b><br>EVERY DAY</div>
 </div>
 <button class="hero-arrow prev" id="heroPrev" aria-label="Previous slide">‹</button>
 <button class="hero-arrow next" id="heroNext" aria-label="Next slide">›</button>
-<div class="hero-dots" aria-label="Choose featured slide"><button class="hero-dot active" data-go="0" aria-label="Slide 1"></button><button class="hero-dot" data-go="1" aria-label="Slide 2"></button><button class="hero-dot" data-go="2" aria-label="Slide 3"></button><button class="hero-dot" data-go="3" aria-label="Slide 4"></button><button class="hero-dot" data-go="4" aria-label="Slide 5"></button></div>
+<div class="hero-dots" aria-label="Choose featured slide"><button class="hero-dot active" data-go="0" aria-label="Slide 1"></button><button class="hero-dot" data-go="1" aria-label="Slide 2"></button><button class="hero-dot" data-go="2" aria-label="Slide 3"></button></div>
 </section>
 <section class="benefits">
 <div class="benefit"><span class="symbol">♧</span><div><strong>Local service</strong><small>Based in Mtwapa</small></div></div>

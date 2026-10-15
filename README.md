@@ -9,7 +9,7 @@ Open `index.html` in a browser, or serve this folder with any static web server.
 - Responsive desktop and mobile layouts
 - Product search and category filtering
 - Product cards including leather official shoes, sale banners and brand strip
-- Five-slide hero carousel (official, casual and training shoes; arrows, dots, auto-rotation); phone hero mirrors the desktop layout
+- Three-slide hero carousel (casual, training and one official-shoes slide, all in the same framed-photo style; arrows, dots, auto-rotation); phone hero mirrors the desktop layout
 - Product view page (`index.html#/product/13`): image gallery with detail views, size picker, quantity, Add to cart, Order on WhatsApp, related products
 - Cart lines are size-aware and the WhatsApp order message includes the chosen EU size
 - Cart with quantity changes and estimated totals
